@@ -35,6 +35,10 @@
 
 - name: Set --http-port option
   template: src=http_port.j2 dest=/etc/marathon/conf/http_port
+
+- name: Set --http_credentials option
+  template: src=http_credentials.j2 dest=/etc/marathon/conf/http_credentials
+  when: http_credentials != ""
   
 - name: Upstart check
   stat: path=/etc/init/
